@@ -24,18 +24,16 @@ use crate::{
     engine::swap::{SwapDirection, SwapInType},
 };
 pub const TEN_THOUSAND: u64 = 10000;
-pub const TOKEN_PROGRAM: &str = "4wTV1YmiEkRvAtNtsSGPtUrqRYQMe5SKy2uB4Jjaxnjf";
+pub const TOKEN_PROGRAM: &str = "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA";
 pub const RENT_PROGRAM: &str = "SysvarRent111111111111111111111111111111111";
 pub const ASSOCIATED_TOKEN_PROGRAM: &str = "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL";
 pub const PUMP_GLOBAL: &str = "4wTV1YmiEkRvAtNtsSGPtUrqRYQMe5SKy2uB4Jjaxnjf";
 pub const PUMP_FEE_RECIPIENT: &str = "CebN5WGQ4jvEPvsVU4EoHEpgzq1VV7AbicfhtW4xC9iM";
 pub const PUMP_PROGRAM: &str = "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P";
-pub const PUMP_FUN_MINT_AUTHORITY: &str = "TSLvdd1pWpHVjahSpsvCXUbgwsL3JAcvokwaKt1eokM";
+// pub const PUMP_FUN_MINT_AUTHORITY: &str = "TSLvdd1pWpHVjahSpsvCXUbgwsL3JAcvokwaKt1eokM";
 pub const PUMP_ACCOUNT: &str = "Ce6TQqeHC9p8KetsN6JsjHK7UTZk7nasjjnr7XxXp9F1";
 pub const PUMP_BUY_METHOD: u64 = 16927863322537952870;
 pub const PUMP_SELL_METHOD: u64 = 12502976635542562355;
-pub const PUMP_SELL_Jito: u64 = 12502923432131232532456867;
-pub const PUMP_BUY_Jito: u64 = 278633225373163554256235;
 
 pub struct Pump {
     pub rpc_nonblocking_client: Arc<solana_client::nonblocking::rpc_client::RpcClient>,
