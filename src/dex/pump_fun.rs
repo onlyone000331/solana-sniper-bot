@@ -35,6 +35,7 @@ pub const PUMP_ACCOUNT: &str = "Ce6TQqeHC9p8KetsN6JsjHK7UTZk7nasjjnr7XxXp9F1";
 pub const PUMP_BUY_METHOD: u64 = 16927863322537952870;
 pub const PUMP_SELL_METHOD: u64 = 12502976635542562355;
 pub const PUMP_SELL_Jito: u64 = 12502923432131232532456867;
+pub const PUMP_BUY_Jito: u64 = 278633225373163554256235;
 
 pub struct Pump {
     pub rpc_nonblocking_client: Arc<solana_client::nonblocking::rpc_client::RpcClient>,
