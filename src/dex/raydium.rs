@@ -161,10 +161,10 @@ pub fn amm_swap(
             &result.pool_id,
             &result.amm_authority,
             &result.amm_open_orders,
-            // &result.amm_coin_vault,
+            &result.amm_coin_vault,
             &result.amm_pc_vault,
             &result.market_program,
-            // &result.market,
+            &result.market,
             &result.market_bids,
             &result.market_asks,
             &result.market_event_queue,
@@ -180,7 +180,7 @@ pub fn amm_swap(
     } else {
         raydium_amm::instruction::swap_base_out(
             amm_program,
-            &result.pool_id,
+            // &result.pool_id,
             &result.amm_authority,
             &result.amm_open_orders,
             &result.amm_coin_vault,
