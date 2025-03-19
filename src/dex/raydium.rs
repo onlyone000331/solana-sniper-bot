@@ -181,7 +181,7 @@ pub fn amm_swap(
         raydium_amm::instruction::swap_base_out(
             amm_program,
             // &result.pool_id,
-            &result.amm_authority,
+            // &result.amm_authority,
             &result.amm_open_orders,
             &result.amm_coin_vault,
             &result.amm_pc_vault,
