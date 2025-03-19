@@ -175,7 +175,7 @@ pub fn amm_swap(
             user_destination,
             user_owner,
             amount_specified,
-            other_amount_threshold,
+            other_amount_threshold,// this is for only raydium
         )?
     } else {
         raydium_amm::instruction::swap_base_out(
