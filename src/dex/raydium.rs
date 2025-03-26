@@ -30,7 +30,7 @@ pub const AMM_PROGRAM: &str = "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8";
 #[derive(Debug, Deserialize)]
 pub struct PoolInfo {
     pub success: bool,
-    // pub data: PoolData,
+    pub data: PoolData,
 }
 
 #[derive(Debug, Deserialize)]
