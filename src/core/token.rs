@@ -65,12 +65,12 @@ pub async fn get_mint_info(
         client.clone(),
         ProgramRpcClientSendTransaction,
     ));
-    let account = program_client
-        .get_account(*address)
-        .await
-        .map_err(TokenError::Client)?
-        .ok_or(TokenError::AccountNotFound)
-        .inspect_err(|err| println!("{} {}: mint {}", address, err, address))?;
+    // let account = program_client
+    //     .get_account(*address)
+    //     .await
+    //     .map_err(TokenError::Client)?
+    //     .ok_or(TokenError::AccountNotFound)
+    //     .inspect_err(|err| println!("{} {}: mint {}", address, err, address))?;
 
     if account.owner != spl_token::ID {
         return Err(TokenError::AccountInvalidOwner);
