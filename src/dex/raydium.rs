@@ -225,7 +225,7 @@ pub async fn get_pool_state(
         }
         // find pool by mint via raydium api
         let pool_data = get_pool_info(&spl_token::native_mint::ID.to_string(), mint).await;
-        // if let Ok(pool_data) = pool_data {
+        if let Ok(pool_data) = pool_data {
             // let pool = pool_data
             //     .get_pool()
             //     .ok_or(anyhow!("NotFoundPool: pool not found in raydium api"))?;
