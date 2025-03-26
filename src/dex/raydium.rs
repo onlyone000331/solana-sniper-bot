@@ -35,7 +35,7 @@ pub struct PoolInfo {
 
 #[derive(Debug, Deserialize)]
 pub struct PoolData {
-    // pub count: u32,
+    pub count: u32,
     pub data: Vec<Pool>,
 }
 
