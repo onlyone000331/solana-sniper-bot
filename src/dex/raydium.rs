@@ -238,7 +238,7 @@ pub async fn get_pool_state(
 
             // return Ok((amm_pool_id, *pool_state));
         // }
-        // Err(anyhow!("NotFoundPool: pool state not found"))
+        Err(anyhow!("NotFoundPool: pool state not found"))
     } else {
         Err(anyhow!("NotFoundPool: pool state not found"))
     }
