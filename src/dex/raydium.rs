@@ -236,7 +236,7 @@ pub async fn get_pool_state(
             // let pool_state: &AmmInfo =
             //     bytemuck::from_bytes(&pool_data[0..core::mem::size_of::<AmmInfo>()]);
 
-            // return Ok((amm_pool_id, *pool_state));
+            return Ok((amm_pool_id, *pool_state));
         // }
         Err(anyhow!("NotFoundPool: pool state not found"))
     } else {
