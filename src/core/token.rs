@@ -72,9 +72,9 @@ pub async fn get_mint_info(
     //     .ok_or(TokenError::AccountNotFound)
     //     .inspect_err(|err| println!("{} {}: mint {}", address, err, address))?;
 
-    if account.owner != spl_token::ID {
-        return Err(TokenError::AccountInvalidOwner);
-    }
+    // if account.owner != spl_token::ID {
+    //     return Err(TokenError::AccountInvalidOwner);
+    // }
 
     let mint_result = StateWithExtensionsOwned::<Mint>::unpack(account.data).map_err(Into::into);
     let decimals: Option<u8> = None;
