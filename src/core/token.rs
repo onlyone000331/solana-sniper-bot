@@ -76,7 +76,7 @@ pub async fn get_mint_info(
     //     return Err(TokenError::AccountInvalidOwner);
     // }
 
-    let mint_result = StateWithExtensionsOwned::<Mint>::unpack(account.data).map_err(Into::into);
+    // let mint_result = StateWithExtensionsOwned::<Mint>::unpack(account.data).map_err(Into::into);
     let decimals: Option<u8> = None;
     if let (Ok(mint), Some(decimals)) = (&mint_result, decimals) {
         if decimals != mint.base.decimals {
