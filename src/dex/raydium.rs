@@ -45,18 +45,18 @@ impl PoolData {
     }
 }
 
-#[derive(Debug, Deserialize, Clone)]
-pub struct Pool {
-    pub id: String,
-    #[serde(rename = "programId")]
-    pub program_id: String,
-    #[serde(rename = "mintA")]
-    pub mint_a: Mint,
-    #[serde(rename = "mintB")]
-    pub mint_b: Mint,
-    #[serde(rename = "marketId")]
-    pub market_id: String,
-}
+// #[derive(Debug, Deserialize, Clone)]
+// pub struct Pool {
+//     pub id: String,
+//     #[serde(rename = "programId")]
+//     pub program_id: String,
+//     #[serde(rename = "mintA")]
+//     pub mint_a: Mint,
+//     #[serde(rename = "mintB")]
+//     pub mint_b: Mint,
+//     #[serde(rename = "marketId")]
+//     pub market_id: String,
+// }
 
 #[derive(Debug, Deserialize, Clone)]
 pub struct Mint {
