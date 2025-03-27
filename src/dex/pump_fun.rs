@@ -99,6 +99,48 @@ impl Pump {
     }
 }
 
+
+//pump swapt state of pool
+pub async fn get_pool_state(
+    rpc_client: Arc<solana_client::rpc_client::RpcClient>,
+    pool_id: Option<&str>,
+    mint: Option<&str>,
+    logger: &Logger,
+) -> Result<(Pubkey, AmmInfo)> {
+    if let Some(pool_id) = pool_id {
+        logger.log(format!("[FIND POOL STATE BY pool_id]: {}", pool_id));
+        let amm_pool_id = Pubkey::from_str(pool_id)?;
+        let pool_data = common::rpc::get_account(&rpc_client, &amm_pool_id)?
+            .ok_or(anyhow!("NotFoundPool: pool state not found"))?;
+        let pool_state: &AmmInfo =
+            bytemuck::from_bytes(&pool_data[0..core::mem::size_of::<AmmInfo>()]);
+        Ok((amm_pool_id, *pool_state))
+    } else if let Some(mint) = mint {
+        // find pool by mint via rpc
+        if let Ok(pool_state) = get_pool_state_by_mint(rpc_client.clone(), mint, logger).await {
+            return Ok(pool_state);
+        }
+        // find pool by mint via raydium api
+        let pool_data = get_pool_info(&spl_token::native_mint::ID.to_string(), mint).await;
+        if let Ok(pool_data) = pool_data {
+            let pool = pool_data
+                .get_pool()
+                .ok_or(anyhow!("NotFoundPool: pool not found in raydium api"))?;
+            let amm_pool_id = Pubkey::from_str(&pool.id)?;
+            logger.log(format!("[FIND POOL STATE BY raydium api]: {}", amm_pool_id));
+            let pool_data = common::rpc::get_account(&rpc_client, &amm_pool_id)?
+                .ok_or(anyhow!("NotFoundPool: pool state not found"))?;
+            let pool_state: &AmmInfo =
+                bytemuck::from_bytes(&pool_data[0..core::mem::size_of::<AmmInfo>()]);
+
+            return Ok((amm_pool_id, *pool_state));
+        }
+        Err(anyhow!("NotFoundPool: pool state not found"))
+    } else {
+        Err(anyhow!("NotFoundPool: pool state not found"))
+    }
+}
+
 fn min_amount_with_slippage(input_amount: u64, slippage_bps: u64) -> u64 {
     input_amount
         .checked_mul(TEN_THOUSAND.checked_sub(slippage_bps).unwrap())
