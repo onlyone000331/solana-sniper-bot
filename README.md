@@ -6,6 +6,7 @@ Introducing the **Solana Ultra-Fast New Token Sniper** written in **Rust** 🦀,
 
 ---
 
+
 ## Key Features
 
 ### 🚀 Speed and Efficiency
