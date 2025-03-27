@@ -21,7 +21,7 @@ use solana_sdk::{
     signer::Signer, system_instruction,
 };
 use spl_associated_token_account::instruction::create_associated_token_account;
-// use spl_token::{amount_to_ui_amount, state::Account, ui_amount_to_amount};
+use spl_token::{amount_to_ui_amount, state::Account, ui_amount_to_amount};
 use spl_token_client::token::TokenError;
 use std::{str::FromStr, sync::Arc};
 
