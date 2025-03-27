@@ -39,11 +39,11 @@ pub struct PoolData {
     pub data: Vec<Pool>,
 }
 
-// impl PoolData {
-//     pub fn get_pool(&self) -> Option<Pool> {
-//         self.data.first().cloned()
-//     }
-// }
+impl PoolData {
+    pub fn get_pool(&self) -> Option<Pool> {
+        self.data.first().cloned()
+    }
+}
 
 #[derive(Debug, Deserialize, Clone)]
 pub struct Pool {
