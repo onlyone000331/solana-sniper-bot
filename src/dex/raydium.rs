@@ -57,7 +57,7 @@ pub struct Pool {
     #[serde(rename = "marketId")]
     pub market_id: String,
 }
-//Here
+//This is for debug of swap
 #[derive(Debug, Deserialize, Clone)]
 pub struct Mint {
     pub address: String,
